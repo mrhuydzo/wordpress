@@ -64,7 +64,7 @@ if(!function_exists('huydzo_theme_setup')){
 
         /*Thêm Sidebar*/
         $sidebar = array(
-            'name' => __('Main sidebar','Thach Pham'),
+            'name' => __('Main sidebar','huydzo'),
             'id' => 'main-sidebar',
             'description' => __('Default Sidebar'),
             'class' => ('mainSidebar'),
@@ -76,33 +76,57 @@ if(!function_exists('huydzo_theme_setup')){
         /*Thêm custom-header*/
         /*add_theme_support('custom-header');*/
 
-
     }
     add_action('init','huydzo_theme_setup');
 }
 
 /*Template Function*/
+
+/*Thiết lập Logo*/
 if(!function_exists('huydzo_logo')){
     function huydzo_logo(){
         $urlBase = get_bloginfo('url');
         $urlSitename = get_bloginfo('sitename');
         if (is_home()){
-            echo '<h1 class="logo pull-left"><a href="'.$urlBase.'" title="'.$urlSitename.'"><img src="images/logo.png" alt="'.$urlSitename.'" /></a></h1>';
+            echo '<h1 class="logo pull-left"><a href="'.$urlBase.'" title="'.$urlSitename.'"><img src="wp-content/themes/huydzo/images/logo.png" alt="'.$urlSitename.'" /></a></h1>';
         }else{
-            echo '<div class="logo pull-left"><a href="'.$urlBase.'" title="'.$urlSitename.'"><img src="images/logo.png" alt="'.$urlSitename.'" /></a></div>';
+            echo '<div class="logo pull-left"><a href="'.$urlBase.'" title="'.$urlSitename.'"><img src="wp-content/themes/huydzo/images/logo.png" alt="'.$urlSitename.'" /></a></div>';
         }
     };
 }
+
 /*Thiết lập Menu*/
-if(!function_exists('huydzo_menu')){
-    function huydzo_menu($menu){
+if(!function_exists('huydzo_nav')){
+    function huydzo_nav($menu){
         $menu = array(
             'theme_location'=> 'primary-menu',
             'container'=> 'nav',
-            'container_class'=> $menu
+            'container_class'=> $menu,
+            'menu_class'      => 'nav-menu pull-left',
+            'menu_id'      => 'lstNav'
         );
         wp_nav_menu($menu);
     }
 }
 
+/*Tạo phân trang*/
+if(!function_exists('pagination')){
+    function pagination(){
+        if( $GLOBALS['wp_query']->max_num_pages < 2 ){
+            return '';
+        }?>
+
+        <div class="prevnext-posts clearfix" role="navigation">
+            <?php if ( get_previous_post_link() ) : ?>
+                <div class="prev"><?php previous_posts_link( __('prev', 'thachpham') ); ?></div>
+            <?php endif; ?>
+
+            <?php if ( get_next_post_link() ) : ?>
+                <div class="next"><?php next_posts_link( __('next', 'thachpham') ); ?></div>
+            <?php endif; ?>
+        </div><?php
+    }
+}
+
 ?>
+
