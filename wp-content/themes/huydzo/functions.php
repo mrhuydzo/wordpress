@@ -122,7 +122,7 @@ if(!function_exists('pagination')){
             <?php endif; ?>
 
             <?php if ( get_next_post_link() ) : ?>
-                <div class="next"><?php next_posts_link( __('next', 'thachpham') ); ?></div>
+                <div class=" next"><?php next_posts_link( __('next', 'thachpham') ); ?></div>
             <?php endif; ?>
         </div><?php
     }
