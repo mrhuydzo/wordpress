@@ -128,5 +128,109 @@ if(!function_exists('pagination')){
     }
 }
 
+/*Hiển thị Thumbnail*/
+if(!function_exists('show_thumbnail')){
+    function show_thumbnail($size){
+        if(!is_single() && has_post_thumbnail()){
+            the_post_thumbnail($size);
+        }else{
+            echo '<img src="wp-content/themes/huydzo/images/thumb-default.png" alt="" />';
+        }
+    }
+}
+/*Hiển thị tiêu đề Post*/
+if(!function_exists('show_titlepost')){
+    function show_titlepost(){
+        $link_post = get_the_permalink();
+        $title_post = get_the_title();
+
+        if(is_single()){
+            echo '<h1><a href="'.$link_post.'" title="'.$title_post.'">'.$title_post.'</a></h1>';
+        }else{
+            echo '<h2><a href="'.$link_post.'" title="'.$title_post.'">'.$title_post.'</a></h2>';
+        }
+    }
+}
+
+/*Hiển thị meta*/
+/*if(!function_exists('show_meta')){
+    function show_meta(){
+
+    }
+}*/
+
+/*Hiển thị meta*/
+if(!function_exists('show_summarypost')){
+    function show_summarypost(){
+        if(!is_single()){
+            the_excerpt();
+        }else{
+            the_content();
+        }
+    }
+}
+
+/*Hiển thị category in home*/
+if(!function_exists('show_listcat')){
+    function show_listcat(){
+        $args = array(
+            'category_name' => 'tin-monster-lab',
+            'posts_per_page'=> '5',
+            'order'=> 'ASC'
+        );
+
+        //the Query
+        $new_query = new WP_Query ($args);
+        //Loop
+        if($new_query->have_posts()):
+            while ($new_query->have_posts()):
+                $new_query->the_post();
+                $tmp = array();
+                // Do Stuff
+                $tmp['id'] = get_the_ID();
+                $tmp['name'] = get_the_title();
+                $tmp['content'] = get_the_content();
+                $tmp['link'] = get_permalink();
+                $tmp['published_date'] = get_the_date("d/m/Y");
+                $tmp['custom_field'] = get_fields();
+                /*var_dump(get_post_thumbnail_id($tmp['id']));die;*/
+
+    }
+}
+
+
+/*$args = array (
+    'category_name'          => 'tin-monster-lab',
+    'pagination'             => false,
+    'posts_per_page'         => '5',
+    'order'                  => 'ASC',
+);
+
+
+
+function get_news($args = array()){
+$rs = array();
+if ($args){
+// The Query
+$the_query = new WP_Query( $args );
+
+// The Loop
+if ( $the_query->have_posts() ) :
+while ( $the_query->have_posts() ) : $the_query->the_post();
+$tmp = array();
+// Do Stuff
+$tmp['id'] = get_the_ID();
+$tmp['name'] = get_the_title();
+$tmp['content'] = get_the_content();
+$tmp['link'] = get_permalink();
+$tmp['published_date'] = get_the_date("d/m/Y");
+$tmp['custom_field'] = get_fields();
+
+var_dump(get_post_thumbnail_id($tmp['id']));
+
+$tmp['featured_image'] = wp_get_attachment_image_src( get_post_thumbnail_id($tmp['id'], 'full' ) );*/
+
+
+
 ?>
 
