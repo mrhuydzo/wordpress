@@ -190,7 +190,7 @@ if(!function_exists('show_listcat')){
             query_posts("cat=$cat_id&posts_per_page=3");
             if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 <ul>
-                    <li><?php the_title(); ?></li>
+                    <li><?php thenqu_title(); ?></li>
                 </ul>
             <?php
             endwhile;
