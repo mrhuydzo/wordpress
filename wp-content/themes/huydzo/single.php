@@ -13,7 +13,7 @@
                     <!--Láy dữ liệu từ file content-->
                     <div class="content">
                         <?php the_content(); ?>
-
+                        <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
                         <div class="tags">
                             <strong>Tags:</strong>&nbsp;
                             <a href="blog_posts.html" title="View posts in technology">technology</a>

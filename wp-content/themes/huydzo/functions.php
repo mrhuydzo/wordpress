@@ -141,6 +141,20 @@ if(!function_exists('pagination')){
                 <div class=" next"><?php next_posts_link( __('next', 'thachpham') ); ?></div>
             <?php endif; ?>
         </div><?php
+
+/*        $args = array(
+                'before'           => '<p>' . __( 'Pages:' ),
+                'after'            => '</p>',
+                'link_before'      => '',
+                'link_after'       => '',
+                'next_or_number'   => 'number',
+                'separator'        => ' ',
+                'nextpagelink'     => __( 'Next page' ),
+                'previouspagelink' => __( 'Previous page' ),
+                'pagelink'         => '%',
+                'echo'             => 1
+            );
+        wp_link_pages( $args );*/
     }
 }
 
@@ -186,42 +200,54 @@ if(!function_exists('show_summarypost')){
     }
 }
 
-/*Hiển thị category in home*/
-if(!function_exists('show_listcat')){
-    function show_listcat(){
-        //get only parents
-        $args = array(
-            'orderby' => 'name',
-            'order' => 'ASC',
-            'parent' => 0
-        );
-        $Parent_categories = get_categories($args);
-        //var_dump ($Parent_categories );die;
-        //$i = 1;
-        foreach($Parent_categories as $category){
-            /*echo '<h2>'.$i++.$category->name.'</h2>';*/
-            $cat_id= $category->term_id;
-            query_posts("cat=$cat_id&posts_per_page=1");
-            if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <div class="span6 post">
-                    <figure>
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class=""><?php show_thumbnail('thumbnail'); ?></a>
-                        <div class="cat-name">
-                            <span class="base"><?php $category->name; ?></span>
-                            <span class="arrow"></span>
-                        </div>
-                    </figure>
-                    <div class="text">
-                        <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-                        <p><?php the_excerpt(); ?></p>
-                        <div class="meta">By <a href="author.html">mdkiwol</a>&nbsp;&nbsp;|&nbsp;&nbsp;Jan. 14, 2013&nbsp;&nbsp;|&nbsp;&nbsp;<a href="single_post.html">15 comments</a></div>
-                    </div>
-                </div>
-                <?php
-                endwhile;
-            endif;
+/*thememove_paging_nav*/
+if ( ! function_exists( 'thememove_paging_nav' ) ) :
+    /**
+     * Display navigation to next/previous set of posts when applicable.
+     */
+    function thememove_paging_nav() {
+        global $wp_query, $wp_rewrite;
+
+        // Don't print empty markup if there's only one page.
+        if ( $wp_query->max_num_pages < 2 ) {
+            return;
         }
+
+        $paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+        $pagenum_link = html_entity_decode( get_pagenum_link() );
+        $query_args   = array();
+        $url_parts    = explode( '?', $pagenum_link );
+
+        if ( isset( $url_parts[1] ) ) {
+            wp_parse_str( $url_parts[1], $query_args );
+        }
+
+        $pagenum_link = esc_url(remove_query_arg( array_keys( $query_args ), $pagenum_link ));
+        $pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
+
+        $format  = $wp_rewrite->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+        $format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
+
+        // Set up paginated links.
+        $links = paginate_links( array(
+            'base'     => $pagenum_link,
+            'format'   => $format,
+            'total'    => $wp_query->max_num_pages,
+            'current'  => $paged,
+            'mid_size' => 1,
+            'add_args' => array_map( 'urlencode', $query_args ),
+            'prev_text' => __( '&larr; Previous', 'twentyfourteen' ),
+            'next_text' => __( 'Next &rarr;', 'twentyfourteen' ),
+        ) );
+
+        if ( $links ) :
+            ?>
+            <div class="pagination loop-pagination">
+                <?php echo $links; ?>
+            </div><!-- .pagination -->
+        <?php
+        endif;
     }
-}
+endif;
 
 ?>

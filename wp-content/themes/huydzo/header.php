@@ -81,7 +81,6 @@
         </div>
     </header> <!-- End Header -->
 
-    <div class="row">
-        <!--Main Nav-->
-        <?php huydzo_lstMainNav('main-navigation'); ?>
-    </div>
+    <!--Main Nav-->
+    <?php huydzo_lstMainNav('main-navigation'); ?>
+
