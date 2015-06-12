@@ -1,0 +1,11 @@
+/bootstrap/compiled.php
+.fuse_*
+HTML (Rails).tmLanguage
+*.tmLanguage
+sublimelinter.version
+.idea
+.DS_Store
+Thumbs.db
+.project
+/nbproject/private/
+app/views/admin/medias/manager.blade - Copy.php
