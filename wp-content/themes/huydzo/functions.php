@@ -173,64 +173,30 @@ if(!function_exists('show_summarypost')){
 /*Hiển thị category in home*/
 if(!function_exists('show_listcat')){
     function show_listcat(){
+        //get only parents
         $args = array(
-            'category_name' => 'tin-monster-lab',
-            'posts_per_page'=> '5',
-            'order'=> 'ASC'
+            'orderby' => 'name',
+            'order' => 'ASC',
+            'parent' => 0
         );
+        $Parent_categories = get_categories($args);
+        //var_dump ($Parent_categories );die;
+        //$html .='<a href="'.get_category_link( $category->term_id ).'">'.$category->category_nicename.'</a>';
+        $i = 0;
+        foreach($Parent_categories as $category){
 
-        //the Query
-        $new_query = new WP_Query ($args);
-        //Loop
-        if($new_query->have_posts()):
-            while ($new_query->have_posts()):
-                $new_query->the_post();
-                $tmp = array();
-                // Do Stuff
-                $tmp['id'] = get_the_ID();
-                $tmp['name'] = get_the_title();
-                $tmp['content'] = get_the_content();
-                $tmp['link'] = get_permalink();
-                $tmp['published_date'] = get_the_date("d/m/Y");
-                $tmp['custom_field'] = get_fields();
-                /*var_dump(get_post_thumbnail_id($tmp['id']));die;*/
-
+            echo '<h2>'.$i++.$category->name.'</h2>';
+            $cat_id= $category->term_id;
+            query_posts("cat=$cat_id&posts_per_page=3");
+            if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                <ul>
+                    <li><?php the_title(); ?></li>
+                </ul>
+            <?php
+            endwhile;
+            endif;
+        }
     }
 }
 
-
-/*$args = array (
-    'category_name'          => 'tin-monster-lab',
-    'pagination'             => false,
-    'posts_per_page'         => '5',
-    'order'                  => 'ASC',
-);
-
-
-
-function get_news($args = array()){
-$rs = array();
-if ($args){
-// The Query
-$the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) :
-while ( $the_query->have_posts() ) : $the_query->the_post();
-$tmp = array();
-// Do Stuff
-$tmp['id'] = get_the_ID();
-$tmp['name'] = get_the_title();
-$tmp['content'] = get_the_content();
-$tmp['link'] = get_permalink();
-$tmp['published_date'] = get_the_date("d/m/Y");
-$tmp['custom_field'] = get_fields();
-
-var_dump(get_post_thumbnail_id($tmp['id']));
-
-$tmp['featured_image'] = wp_get_attachment_image_src( get_post_thumbnail_id($tmp['id'], 'full' ) );*/
-
-
-
 ?>
-
