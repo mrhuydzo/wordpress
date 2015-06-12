@@ -61,6 +61,7 @@ if(!function_exists('huydzo_theme_setup')){
 
         /*Thêm menu*/
         register_nav_menu('primary-menu',__('Primary Menu','huydzo'));
+        register_nav_menu('second-menu',__('Second Menu','huydzo'));
 
         /*Thêm Sidebar*/
         $sidebar = array(
@@ -102,8 +103,23 @@ if(!function_exists('huydzo_nav')){
             'theme_location'=> 'primary-menu',
             'container'=> 'nav',
             'container_class'=> $menu,
-            'menu_class'      => 'nav-menu pull-left',
+            'menu_class'      => 'rs nav-menu pull-left',
             'menu_id'      => 'lstNav'
+        );
+        wp_nav_menu($menu);
+    }
+}
+
+/*Thiết lập Menu Top*/
+if(!function_exists('huydzo_lstMainNav')){
+    function huydzo_lstMainNav($menu){
+        $menu = array(
+            'theme_location'=> 'second-menu',
+            'container'=> 'nav',
+            'container_id'=> 'main-navigation',
+            'container_class'=> 'clearfix',
+            'menu_class'      => 'rs',
+            'menu_id'      => 'lstMainNav'
         );
         wp_nav_menu($menu);
     }
@@ -181,19 +197,28 @@ if(!function_exists('show_listcat')){
         );
         $Parent_categories = get_categories($args);
         //var_dump ($Parent_categories );die;
-        //$html .='<a href="'.get_category_link( $category->term_id ).'">'.$category->category_nicename.'</a>';
-        $i = 0;
+        //$i = 1;
         foreach($Parent_categories as $category){
-
-            echo '<h2>'.$i++.$category->name.'</h2>';
+            /*echo '<h2>'.$i++.$category->name.'</h2>';*/
             $cat_id= $category->term_id;
-            query_posts("cat=$cat_id&posts_per_page=3");
+            query_posts("cat=$cat_id&posts_per_page=1");
             if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <ul>
-                    <li><?php the_title(); ?></li>
-                </ul>
-            <?php
-            endwhile;
+                <div class="span6 post">
+                    <figure>
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class=""><?php show_thumbnail('thumbnail'); ?></a>
+                        <div class="cat-name">
+                            <span class="base"><?php $category->name; ?></span>
+                            <span class="arrow"></span>
+                        </div>
+                    </figure>
+                    <div class="text">
+                        <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                        <p><?php the_excerpt(); ?></p>
+                        <div class="meta">By <a href="author.html">mdkiwol</a>&nbsp;&nbsp;|&nbsp;&nbsp;Jan. 14, 2013&nbsp;&nbsp;|&nbsp;&nbsp;<a href="single_post.html">15 comments</a></div>
+                    </div>
+                </div>
+                <?php
+                endwhile;
             endif;
         }
     }

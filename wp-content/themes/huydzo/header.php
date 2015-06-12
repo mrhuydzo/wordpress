@@ -20,8 +20,8 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <!-- Stylesheets -->
 
-    <link rel="stylesheet" href="wp-content/themes/huydzo/css/bootstrap.min.css">
-    <link rel="stylesheet" href="wp-content/themes/huydzo/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="wp-content/themes/huydzo/css/flexslider.css">
     <link rel="stylesheet" href="wp-content/themes/huydzo/css/prettyPhoto.css">
     <link rel="stylesheet" href="wp-content/themes/huydzo/style.css">
@@ -79,6 +79,9 @@
         <div class="ads pull-right">
             <img src="wp-content/themes/huydzo/images/ads/480x80.png" alt="Ads" />
         </div>
-
-
     </header> <!-- End Header -->
+
+    <div class="row">
+        <!--Main Nav-->
+        <?php huydzo_lstMainNav('main-navigation'); ?>
+    </div>
