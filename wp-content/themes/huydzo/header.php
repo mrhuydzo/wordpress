@@ -22,14 +22,14 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="wp-content/themes/huydzo/css/flexslider.css">
-    <link rel="stylesheet" href="wp-content/themes/huydzo/css/prettyPhoto.css">
-    <link rel="stylesheet" href="wp-content/themes/huydzo/style.css">
+    <link rel="stylesheet" href="<?php echo get_bloginfo('stylesheet_directory'); ?>/css/flexslider.css">
+    <link rel="stylesheet" href="<?php echo get_bloginfo('stylesheet_directory'); ?>/css/prettyPhoto.css">
+    <link rel="stylesheet" href="<?php echo get_bloginfo('stylesheet_url'); ?>">
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-    <noscript><link rel="stylesheet" href="css/no-js.css"></noscript> <!-- If JavaScript Disabled -->
+    <noscript><link rel="stylesheet" href="<?php echo get_bloginfo('stylesheet_directory'); ?>/css/no-js.css"></noscript> <!-- If JavaScript Disabled -->
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
