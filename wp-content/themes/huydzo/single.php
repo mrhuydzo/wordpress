@@ -12,6 +12,7 @@
                     <!--Láy dữ liệu từ file content-->
                     <h1><?php the_title(); ?></h1>
                     <?php get_template_part('content', get_post_format()); ?>
+                    <?php comments_template(); ?>
                 <?php endwhile; ?>
                     <!--Phân trang-->
                     <?php pagination(); ?>
