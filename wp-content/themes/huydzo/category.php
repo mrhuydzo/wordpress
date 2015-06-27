@@ -3,7 +3,7 @@
         <div class="row">
             <div class="breadcrumb clearfix">
                 <span class="base">You are here</span>
-                <p><a href="index-2.html">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;Archive Category: <a href="blog_posts.html" title="View articles in Technology">Technology</a></p>
+                <?php show_bread(); ?>
             </div>
             <div class="post clearfix">
                 <!--Kiểm tra xem có dữ liệu chưa-->
@@ -33,4 +33,7 @@
             </div>
         </div>
 	</div>
+    <div id="sidebar" class="col-md-4">
+        <?php get_sidebar(); ?>
+    </div>
 <?php get_footer(); ?>

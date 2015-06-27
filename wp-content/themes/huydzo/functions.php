@@ -200,6 +200,29 @@ if(!function_exists('show_summarypost')){
     }
 }
 
+/**
+@ Hàm hiển thị tag của post
+@ show_tag()
+ **/
+if ( ! function_exists( 'show_tag' ) ) {
+    function show_tag() {
+        if ( has_tag() ) :
+            echo '<div class="entry-tag">';
+            printf( __('Tagged in %1$s', ''), get_the_tag_list( '', ', ' ) );
+            echo '</div>';
+        endif;
+    }
+}
+
+/*Hiển thị Breadcrums*/
+if(!function_exists('show_bread')){
+    function show_bread(){
+        $urlbase = get_bloginfo('url');
+        $cat_current = get_the_category();
+        echo '<p><a href="'.$urlbase.'">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="" title="">Technology</a>&nbsp;&nbsp;→&nbsp;&nbsp;Winter Kitchen With Silver Panorama</p>';
+    }
+}
+
 /*thememove_paging_nav*/
 if ( ! function_exists( 'thememove_paging_nav' ) ) :
     /**

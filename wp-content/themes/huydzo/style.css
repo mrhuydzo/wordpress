@@ -3166,3 +3166,5 @@ ul.nav-tabs li a:hover, ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
     }
 
 }
+
+.single-post .content img{max-width: 100%}

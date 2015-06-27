@@ -9,5 +9,6 @@
         <a href="blog_posts.html" title="View posts in inspiration">inspiration</a>
         <a href="blog_posts.html" title="View posts in kitchen">kitchen</a>
         <a href="blog_posts.html" title="View posts in panorama">panorama</a>
+        <?php show_tag(); ?>
     </div>
 </div>

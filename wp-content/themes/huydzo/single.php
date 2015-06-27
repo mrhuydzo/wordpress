@@ -1,10 +1,10 @@
 <?php get_header(); ?>
     <div class="row-fluid">
-        <div id="main" class="span8 single single-post image-preloader">
+        <div id="main" class="col-md-8 single single-post image-preloader">
             <div class="row-fluid">
                 <div class="breadcrumb clearfix">
                     <span class="base">You are here</span>
-                    <p><a href="index-2.html">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="blog_posts.html" title="View articles in Technology">Technology</a>&nbsp;&nbsp;→&nbsp;&nbsp;Winter Kitchen With Silver Panorama</p>
+                    <?php show_bread(); ?>
                 </div>
 
                 <!--Kiểm tra xem có dữ liệu chưa-->
@@ -12,7 +12,7 @@
                     <!--Láy dữ liệu từ file content-->
                     <h1><?php the_title(); ?></h1>
                     <?php get_template_part('content', get_post_format()); ?>
-                    <?php comments_template(); ?>
+                    <?php // comments_template(); ?>
                 <?php endwhile; ?>
                     <!--Phân trang-->
                     <?php pagination(); ?>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div id="sidebar" class="span4">
+        <div id="sidebar" class="col-md-4">
             <?php get_sidebar(); ?>
         </div>
     </div>
