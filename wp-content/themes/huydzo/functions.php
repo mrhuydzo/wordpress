@@ -219,7 +219,10 @@ if(!function_exists('show_bread')){
     function show_bread(){
         $urlbase = get_bloginfo('url');
         $cat_current = get_the_category();
-        echo '<p><a href="'.$urlbase.'">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="" title="">Technology</a>&nbsp;&nbsp;→&nbsp;&nbsp;Winter Kitchen With Silver Panorama</p>';
+
+        //var_dump($category[0]->cat_name);die;
+        //$cat_current[0]->cat_ID;
+        echo '<p><a href="'.$urlbase.'">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="'.$cat_current[0]->taxonomy.'" title="'.$cat_current[0]->cat_name.'">'.$cat_current[0]->cat_name.'</a>&nbsp;&nbsp;→&nbsp;&nbsp;Winter Kitchen With Silver Panorama</p>';
     }
 }
 
