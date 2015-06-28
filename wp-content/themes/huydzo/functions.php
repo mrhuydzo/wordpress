@@ -208,8 +208,10 @@ if ( ! function_exists( 'show_tag' ) ) {
     function show_tag() {
         if ( has_tag() ) :
             echo '<div class="entry-tag">';
-            printf( __('Tagged in %1$s', ''), get_the_tag_list( '', ', ' ) );
+            printf( __('<strong>Tags </strong> %1$s', ''), get_the_tag_list( '', ',' ));
             echo '</div>';
+        else:
+            echo '<h4>Không có Tags nào</h4>';
         endif;
     }
 }
@@ -220,9 +222,20 @@ if(!function_exists('show_bread')){
         $urlbase = get_bloginfo('url');
         $cat_current = get_the_category();
 
-        //var_dump($category[0]->cat_name);die;
         //$cat_current[0]->cat_ID;
-        echo '<p><a href="'.$urlbase.'">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="'.$cat_current[0]->taxonomy.'" title="'.$cat_current[0]->cat_name.'">'.$cat_current[0]->cat_name.'</a>&nbsp;&nbsp;→&nbsp;&nbsp;Winter Kitchen With Silver Panorama</p>';
+        // Get the ID of a given category
+        $category_id = $cat_current[0]->term_id;
+
+        // Get the URL of this category
+        $category_link = get_category_link( $category_id );
+        //var_dump($category_id);die;
+
+        if(is_category()){
+            echo '<p><a href="'.$urlbase.'">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="'.$category_link.'" title="'.$cat_current[0]->cat_name.'">'.$cat_current[0]->cat_name.'</a>';
+        }elseif(is_single()){
+            $title_post = get_the_title();
+            echo '<p><a href="'.$urlbase.'">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="'.$category_link.'" title="'.$cat_current[0]->cat_name.'">'.$cat_current[0]->cat_name.'</a>&nbsp;&nbsp;→&nbsp;&nbsp; '.$title_post.'</p>';
+        }
     }
 }
 
