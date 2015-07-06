@@ -85,6 +85,29 @@
     <?php huydzo_lstMainNav('main-navigation'); ?>
 
 
+    <!--Featured news-->
+    <div id="highlight-posts" class="clearfix">
+        <ul class="rs cf ">
+            <?php $arr = query_posts('posts_per_page=4&cat=127'); ?>
+            <?php if(have_posts()){ ?>
+                <?php while (have_posts()){the_post(); ?>
+                    <?php /*var_dump($arr[0]);die;*/ $masked='masked-small'?>
+                    <?php if ($arr[0]){$masked == 'masked-big'; }?>
+                    <li class="masked <?php echo $masked ?>">
+                        <a href="single_post.html" title=""><div class="masked-hover"></div></a>
+                        <div class="masked-base" style="display: block;"></div>
+                        <div class="masked-color masked-violet" style="display: none;"></div>
+                        <div class="text">
+                            <h2><?php the_title(); ?></h2>
+                            <span class="meta">By <?php the_author(); ?> on <?php the_date(); ?></span>
+                            <p><?php the_excerpt(); ?></p>
+                        </div>
+                    </li>
+                <?php } ?>
+            <?php } ?>
+        </ul>
+    </div>
+
     <!--headlines-->
     <div class="headlines clearfix">
         <span class="base">30<i>Tue</i></span>

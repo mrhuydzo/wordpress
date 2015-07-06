@@ -743,19 +743,11 @@ ul.nav-tabs li a:hover, ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
     margin:10px 0px 0px;
 }
 
-.masked.masked-big {
-    width:632px;
-    height:416px;
-    margin-right:1px;
-}
+.masked.masked-big {width: 630px;height: 401px;margin-right: 1px;}
 .masked.masked-big .text { padding:20px 30px; }
 .masked.masked-big .text h2 { font-size:30px; }
 
-.masked.masked-small {
-    width:537px;
-    height:138px;
-    margin-bottom:1px;
-}
+.masked.masked-small {width: 509px;height: 133px;margin-bottom: 1px;}
 .masked.masked-small .text { padding:20px; }
 
 .masked .masked-base {
