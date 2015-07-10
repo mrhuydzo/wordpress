@@ -125,19 +125,6 @@ if(!function_exists('huydzo_lstMainNav')){
     }
 }
 
-/*Featured News*/
-if(!function_exists('featured_news')){
-    function featured_news(){
-        query_posts('posts_per_page=3&cat=127');
-        if(have_posts()){
-            while(have_posts()){ the_post();
-                the_title();
-
-            }
-        }
-    }
-}
-
 /*Tạo phân trang*/
 if(!function_exists('pagination')){
     function pagination(){

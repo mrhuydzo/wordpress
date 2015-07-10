@@ -1,6 +1,15 @@
 <article class="post clearfix" id="<?php the_id();?>">
     <figure>
-        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class=""><?php show_thumbnail('thumbnail'); ?></a>
+        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="thumb">
+            <?php
+                if(has_post_thumbnail()){
+                    add_image_size('size190-190',190);
+                    the_post_thumbnail('size190-190');
+                }else{
+                    echo '<img src="wp-content/themes/huydzo/images/thumb-default.png" alt="" />';
+                }
+            ?>
+        </a>
     </figure>
     <div class="content">
         <?php show_titlepost(); ?>

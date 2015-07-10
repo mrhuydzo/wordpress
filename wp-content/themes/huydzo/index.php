@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-    <div class="row">
-        <div id="main" class="col-md-8 image-preloader" role="main">
+    <div id="homepage" class="row">
+        <div id="main" class="col-md-8" role="main">
             <div class="row">
                 <?php
                     //get only parents

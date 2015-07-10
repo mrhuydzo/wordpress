@@ -84,10 +84,13 @@
     <!--Main Nav-->
     <?php huydzo_lstMainNav('main-navigation'); ?>
 
+    <?php
+        if(is_home()){
+            //Featured news
+            get_template_part('inc/featured');
 
-    <!--Featured news-->
-    <?php get_template_part('inc/featured'); ?>
+            //headlines
+            get_template_part('inc/headlines');
+        }
+    ?>
 
-
-    <!--headlines-->
-    <?php get_template_part('inc/headlines'); ?>
