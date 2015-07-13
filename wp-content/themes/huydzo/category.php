@@ -24,7 +24,7 @@
                         <?php /*get_template_part('listnews', get_post_format()); */?>
                         <?php get_template_part('listnews', get_post_format()); ?>
                     <?php } ?>
-                    <?php thememove_paging_nav(); ?>
+                    <?php pagination(); ?>
 
                 <?php }else{ ?>
                     <?php get_template_part('content', 'none'); ?>
