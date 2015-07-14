@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
     <div id="homepage" class="row">
         <div id="main" class="col-md-8" role="main">
             <div class="row">
