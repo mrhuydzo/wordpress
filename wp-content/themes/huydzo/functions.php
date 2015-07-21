@@ -260,4 +260,15 @@ if ( !function_exists('pagination')){
     }
 }
 
+/*Sidebar*/
+register_sidebar(array(
+    'name' => 'My sidebar',
+    'id' => 'side-bar',
+    'description' => 'Khu vuc sidebar hien thi duoi moi bai viet',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h1 class="widget-title">',
+    'after_title' => '</h1>'
+));
+
 ?>

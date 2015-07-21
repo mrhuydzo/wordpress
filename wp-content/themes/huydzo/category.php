@@ -32,7 +32,7 @@
             </div>
         </div>
 	</div>
-    <div id="sidebar" class="col-md-4">
-        <?php get_sidebar(); ?>
-    </div>
+
+    <?php get_sidebar(); ?>
+
 <?php get_footer(); ?>
