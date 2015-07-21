@@ -52,9 +52,13 @@
         </div>
 
         <!-- Search Form -->
-        <form name="form-search" method="post" action="http://dotstheme.com/demo/premium/enews_responsive_news_template/html/stretched/search.html" class="form-search pull-right">
+        <!--<form name="form-search" method="post" action="http://dotstheme.com/demo/premium/enews_responsive_news_template/html/stretched/search.html" class="form-search pull-right">
             <input type="text" name="search" placeholder="Search...." class="input-icon input-icon-search" />
-        </form>
+        </form>-->
+        <div class="pull-right">
+            <?php get_search_form(); ?>
+        </div>
+
 
         <!-- Social Media -->
         <ul class="social pull-right">

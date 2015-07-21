@@ -939,3 +939,9 @@ ul.nav-tabs li a:hover, ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{c
 #category .headline-post figure{height: 180px;overflow: hidden}
 #category .headline-post figure a{display: block}
 
+.searchform{margin: 10px;}
+.searchform label{display: none}
+.searchform input[type="text"]{font-size:12px;height:32px;background-color:#202020;border:1px solid #000;color:#ACACAC;-moz-border-radius:0px;-webkit-border-radius:0px;border-radius:0px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-transition:none;-moz-transition:none;-o-transition:none;transition:none;}
+.searchform input[type="text"]:focus{color:#FFF;}
+.searchform input#searchsubmit{background: url(images/input-icon-search.png) no-repeat right center #202020;text-indent: -9999em;width: 40px;height: 32px;margin: 1px;padding: 0;vertical-align: middle;border: 1px solid #000;border-left: none;margin: 0 0 0 -10px;}
+
