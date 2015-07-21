@@ -6,7 +6,7 @@
                     add_image_size('size190-190',190);
                     the_post_thumbnail('size190-190');
                 }else{
-                    echo '<img src="wp-content/themes/huydzo/images/thumb-default.png" alt="" />';
+                    echo '<img src="'.get_bloginfo('template_url').'/images/thumb-default.png" alt="" />';
                 }
             ?>
         </a>

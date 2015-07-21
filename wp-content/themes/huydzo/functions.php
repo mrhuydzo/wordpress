@@ -89,9 +89,9 @@ if(!function_exists('huydzo_logo')){
         $urlBase = get_bloginfo('url');
         $urlSitename = get_bloginfo('sitename');
         if (is_home()){
-            echo '<h1 class="logo pull-left"><a href="'.$urlBase.'" title="'.$urlSitename.'"><img src="wp-content/themes/huydzo/images/logo.png" alt="'.$urlSitename.'" /></a></h1>';
+            echo '<h1 class="logo pull-left"><a href="'.$urlBase.'" title="'.$urlSitename.'"><img src="'.get_bloginfo('template_url').'/images/logo.png" alt="'.$urlSitename.'" /></a></h1>';
         }else{
-            echo '<div class="logo pull-left"><a href="'.$urlBase.'" title="'.$urlSitename.'"><img src="wp-content/themes/huydzo/images/logo.png" alt="'.$urlSitename.'" /></a></div>';
+            echo '<div class="logo pull-left"><a href="'.$urlBase.'" title="'.$urlSitename.'"><img src="'.get_bloginfo('template_url').'/images/logo.png" alt="'.$urlSitename.'" /></a></div>';
         }
     };
 }
@@ -164,7 +164,7 @@ if(!function_exists('show_thumbnail')){
         if(!is_single() && has_post_thumbnail()){
             the_post_thumbnail($size);
         }else{
-            echo '<img src="wp-content/themes/huydzo/images/thumb-default.png" alt="" />';
+            echo '<img src="'.get_bloginfo('template_url').'/images/thumb-default.png" alt="" />';
         }
     }
 }

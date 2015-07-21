@@ -36,10 +36,10 @@
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="wp-content/themes/huydzo/images/favicon.ico">
-    <link rel="apple-touch-icon" href="wp-content/themes/huydzo/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="<?php echo get_bloginfo('template_url'); ?>/images/favicon.ico">
+    <link rel="apple-touch-icon" href="<?php echo get_bloginfo('template_url'); ?>/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_bloginfo('template_url'); ?>/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_bloginfo('template_url'); ?>/images/apple-touch-icon-114x114.png">
 
     <?php wp_head(); ?>
 </head>
@@ -58,13 +58,13 @@
 
         <!-- Social Media -->
         <ul class="social pull-right">
-            <li><a href="#" data-placement="bottom" data-original-title="Find us on LinkedIn"><img src="wp-content/themes/huydzo/images/social/infocus/linkedin-logo.png" alt="LinkedIn"></a></li>
-            <li><a href="#" data-placement="bottom" data-original-title="Find us on Flickr"><img src="wp-content/themes/huydzo/images/social/infocus/flickr.png" alt="Flickr"></a></li>
-            <li><a href="#" data-placement="bottom" data-original-title="Like us on Facebook"><img src="wp-content/themes/huydzo/images/social/infocus/facebook-logo.png" alt="Facebook"></a></li>
-            <li><a href="#" data-placement="bottom" data-original-title="Follow on DeviantArt"><img src="wp-content/themes/huydzo/images/social/infocus/deviantart.png" alt="DeviantArt"></a></li>
-            <li><a href="#" data-placement="bottom" data-original-title="Follow on Twitter"><img src="wp-content/themes/huydzo/images/social/infocus/twitter.png" alt="Twitter"></a></li>
-            <li><a href="#" data-placement="bottom" data-original-title="Follow on Stumbleupon"><img src="wp-content/themes/huydzo/images/social/infocus/stumbleupon.png" alt="Stumbleupon"></a></li>
-            <li><a href="#" data-placement="bottom" data-original-title="Call us via Skype"><img src="wp-content/themes/huydzo/images/social/infocus/skype.png" alt="Skype"></a></li>
+            <li><a href="#" data-placement="bottom" data-original-title="Find us on LinkedIn"><img src="<?php echo get_bloginfo('template_url'); ?>/images/social/infocus/linkedin-logo.png" alt="LinkedIn"></a></li>
+            <li><a href="#" data-placement="bottom" data-original-title="Find us on Flickr"><img src="<?php echo get_bloginfo('template_url'); ?>/images/social/infocus/flickr.png" alt="Flickr"></a></li>
+            <li><a href="#" data-placement="bottom" data-original-title="Like us on Facebook"><img src="<?php echo get_bloginfo('template_url'); ?>/images/social/infocus/facebook-logo.png" alt="Facebook"></a></li>
+            <li><a href="#" data-placement="bottom" data-original-title="Follow on DeviantArt"><img src="<?php echo get_bloginfo('template_url'); ?>/images/social/infocus/deviantart.png" alt="DeviantArt"></a></li>
+            <li><a href="#" data-placement="bottom" data-original-title="Follow on Twitter"><img src="<?php echo get_bloginfo('template_url'); ?>/images/social/infocus/twitter.png" alt="Twitter"></a></li>
+            <li><a href="#" data-placement="bottom" data-original-title="Follow on Stumbleupon"><img src="<?php echo get_bloginfo('template_url'); ?>/images/social/infocus/stumbleupon.png" alt="Stumbleupon"></a></li>
+            <li><a href="#" data-placement="bottom" data-original-title="Call us via Skype"><img src="<?php echo get_bloginfo('template_url'); ?>/images/social/infocus/skype.png" alt="Skype"></a></li>
         </ul>
 
     </div> <!-- End Container -->
@@ -77,7 +77,7 @@
 
         <!-- Ads -->
         <div class="ads pull-right">
-            <img src="wp-content/themes/huydzo/images/ads/480x80.png" alt="Ads" />
+            <img src="<?php echo get_bloginfo('template_url'); ?>/images/ads/480x80.png" alt="Ads" />
         </div>
     </header> <!-- End Header -->
 
