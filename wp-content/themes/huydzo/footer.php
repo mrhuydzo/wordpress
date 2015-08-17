@@ -33,6 +33,7 @@
 <script type='text/javascript' src='<?php echo get_bloginfo('template_url'); ?>/js/jquery.isotope.min.js'></script>
 <script type='text/javascript' src='<?php echo get_bloginfo('template_url'); ?>/js/jquery.hoverdir.js'></script>
 <script type='text/javascript' src='<?php echo get_bloginfo('template_url'); ?>/js/modernizr.custom.js'></script>
+<script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/js/smoothscroll.js"></script>
 <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/js/main.js"></script>
 
 </body>

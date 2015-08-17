@@ -260,16 +260,47 @@ if ( !function_exists('pagination')){
     }
 }
 
-    /*Sidebar*/
-    register_sidebar(array(
-        'name' => 'My sidebar',
-        'id' => 'side-bar',
-        'description' => 'Khu vuc sidebar hien thi duoi moi bai viet',
-        'class'         => '',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<div class="header"><h4 class="widget-title">',
-        'after_title' => '</h4></div>'
-    ));
+/*Sidebar*/
+register_sidebar(array(
+    'name' => 'My sidebar',
+    'id' => 'side-bar',
+    'description' => 'Khu vuc sidebar hien thi duoi moi bai viet',
+    'class'         => '',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<div class="header"><h4 class="widget-title">',
+    'after_title' => '</h4></div>'
+));
+
+/*Random Post*/
+if(!function_exists('randomPost')){
+    function randomPost(){
+        $randpost = new WP_Query();
+        $randpost->query('showposts=5&orderby=rand&ignore_sticky_posts=true');
+
+        while ($randpost->have_posts()):
+            $randpost->the_post();
+            $thumb_default ='';
+            if(has_post_thumbnail()){
+                add_image_size('size70',70);
+                get_the_post_thumbnail('size70');
+            }else{
+                $thumb_default = '<img src="'.get_bloginfo('template_url').'/images/thumb-default.png" alt="'.get_the_title().'" />';
+            }
+
+            $html ='';
+            $html .= '<div class="item">';
+            $html .= '<figure class="pull-left">';
+            $html .= '<a href="'.get_the_permalink().'" alt="'.get_the_title().'" >'.$thumb_default.'</a>';
+            $html .= '</figure>';
+            $html .= '<div class="pull-right content">';
+            $html .= '<h5><a href="'.get_the_permalink().'" alt="'.get_the_title().'" >'.get_the_title().'</a></h5>';
+            $html .= '<p class="meta">7,849 views&nbsp;&nbsp;|&nbsp;&nbsp;49 comments</p>';
+            $html .= '</div>';
+            $html .= '</div>';
+            echo $html;
+        endwhile;
+    }
+}
 
 ?>
