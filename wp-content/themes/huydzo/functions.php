@@ -279,6 +279,7 @@ if(!function_exists('randomPost')){
         $randpost->query('showposts=5&orderby=rand&ignore_sticky_posts=true');
 
         while ($randpost->have_posts()):
+            postview_set(get_the_id());
             $randpost->the_post();
             $thumb_default ='';
             if(has_post_thumbnail()){
@@ -295,7 +296,7 @@ if(!function_exists('randomPost')){
             $html .= '</figure>';
             $html .= '<div class="pull-right content">';
             $html .= '<h5><a href="'.get_the_permalink().'" alt="'.get_the_title().'" >'.get_the_title().'</a></h5>';
-            $html .= '<p class="meta">7,849 views&nbsp;&nbsp;|&nbsp;&nbsp;49 comments</p>';
+            $html .= '<p class="meta">'.postview_get(get_the_id()).' &nbsp;&nbsp;|&nbsp;&nbsp;49 comments</p>';
             $html .= '</div>';
             $html .= '</div>';
             echo $html;
@@ -303,4 +304,31 @@ if(!function_exists('randomPost')){
     }
 }
 
+/*Most Views*/
+if(!function_exists('mostview')){
+// Set post view
+    function postview_set($postID) {
+        $count_key = 'postview_number';
+        $count = get_post_meta($postID, $count_key, true);
+        if($count==''){
+            $count = 0;
+            delete_post_meta($postID, $count_key);
+            add_post_meta($postID, $count_key, '0');
+        }else{
+            $count++;
+            update_post_meta($postID, $count_key, $count);
+        }
+    }
+// Get post view
+    function postview_get($postID){
+        $count_key = 'postview_number';
+        $count = get_post_meta($postID, $count_key, true);
+        if($count==''){
+            delete_post_meta($postID, $count_key);
+            add_post_meta($postID, $count_key, '0');
+            return "0 lượt xem";
+        }
+        return $count.' lượt xem';
+    }
+}
 ?>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
     <div class="row">
-        <div id="main" class="col-md-8 single single-post image-preloader">
+        <div id="main" class="col-md-8">
             <div class="breadcrumb clearfix">
                 <span class="base">You are here</span>
                 <?php show_bread(); ?>
@@ -18,6 +18,9 @@
             <?php else :?>
                 <?php get_template_part('content', 'none'); ?>
             <?php endif; ?>
+
+            <?php get_template_part( 'author-bio' ); ?>
+            <?php comments_template(); ?>
         </div>
 
 

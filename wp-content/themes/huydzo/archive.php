@@ -4,15 +4,15 @@
             <h2>
                 <?php
                 if ( is_tag() ) :
-                    printf( __('Posts Tagged: %1$s','thachpham'), single_tag_title( '', false ) );
+                    printf( __('Posts Tagged: %1$s',''), single_tag_title( '', false ) );
                 elseif ( is_category() ) :
-                    printf( __('Posts Categorized: %1$s','thachpham'), single_cat_title( '', false ) );
+                    printf( __('Posts Categorized: %1$s',''), single_cat_title( '', false ) );
                 elseif ( is_day() ) :
-                    printf( __('Daily Archives: %1$s','thachpham'), the_time('l, F j, Y') );
+                    printf( __('Daily Archives: %1$s',''), the_time('l, F j, Y') );
                 elseif ( is_month() ) :
-                    printf( __('Monthly Archives: %1$s','thachpham'), the_time('F Y') );
+                    printf( __('Monthly Archives: %1$s',''), the_time('F Y') );
                 elseif ( is_year() ) :
-                    printf( __('Yearly Archives: %1$s','thachpham'), the_time('Y') );
+                    printf( __('Yearly Archives: %1$s',''), the_time('Y') );
                 endif;
                 ?>
             </h2>
