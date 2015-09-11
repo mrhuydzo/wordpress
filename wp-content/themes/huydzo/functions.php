@@ -231,10 +231,10 @@ if(!function_exists('show_bread')){
         //var_dump($category_id);die;
 
         if(is_category()){
-            echo '<p><a href="'.$urlbase.'">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="'.$category_link.'" title="'.$cat_current[0]->cat_name.'">'.$cat_current[0]->cat_name.'</a>';
+            echo '<p><a href="'.$urlbase.'"<i class="glyphicon glyphicon-home"></i></a>&nbsp;→&nbsp;<a href="'.$category_link.'" title="'.$cat_current[0]->cat_name.'">'.$cat_current[0]->cat_name.'</a>';
         }elseif(is_single()){
             $title_post = get_the_title();
-            echo '<p><a href="'.$urlbase.'">Home</a>&nbsp;&nbsp;→&nbsp;&nbsp;<a href="'.$category_link.'" title="'.$cat_current[0]->cat_name.'">'.$cat_current[0]->cat_name.'</a>&nbsp;&nbsp;→&nbsp;&nbsp; '.$title_post.'</p>';
+            echo '<p><a href="'.$urlbase.'"><i class="glyphicon glyphicon-home"></i></a>&nbsp;→&nbsp;<a href="'.$category_link.'" title="'.$cat_current[0]->cat_name.'">'.$cat_current[0]->cat_name.'</a>&nbsp;→&nbsp; '.$title_post.'</p>';
         }
     }
 }

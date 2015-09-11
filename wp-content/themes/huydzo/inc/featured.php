@@ -4,7 +4,7 @@
         <?php
             $arr = array(
                 'posts_per_page' => '4',
-                'cat'=> '127'
+                'cat'=> '13'
             );
             $the_query = new WP_Query($arr);
         ?>

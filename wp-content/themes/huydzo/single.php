@@ -2,7 +2,6 @@
     <div class="row">
         <div id="main" class="col-md-8">
             <div class="breadcrumb clearfix">
-                <span class="base">You are here</span>
                 <?php show_bread(); ?>
             </div>
 
@@ -22,9 +21,6 @@
             <?php get_template_part( 'author-bio' ); ?>
             <?php comments_template(); ?>
         </div>
-
-
         <?php get_sidebar(); ?>
-
     </div>
 <?php get_footer(); ?>
