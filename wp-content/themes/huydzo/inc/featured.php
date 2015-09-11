@@ -24,7 +24,7 @@
                         $masked = 'masked-small';
                         $des ='';
                         //$size =  array(509,340);
-                        add_image_size('image', 509);
+                        //add_image_size('image', 510);
                     }
                     $i++;
                     //add_image_size('first_image', 630, 400, true);

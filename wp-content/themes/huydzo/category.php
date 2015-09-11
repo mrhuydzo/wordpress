@@ -2,7 +2,6 @@
 	<div id="main" class="col-md-8 blog-posts " role="main">
         <div class="row">
             <div class="breadcrumb clearfix">
-                <span class="base">You are here</span>
                 <?php show_bread(); ?>
             </div>
             <div class="post clearfix">
