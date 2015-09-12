@@ -49,7 +49,7 @@ h5{font-size:15px;font-weight:bold;}
 h6{font-size:13px;}
 figure{margin:0px;}
 figure .thumb{display:block;width:100%;overflow:hidden;}
-figure img{width:100%;min-height: 195px}
+figure img{width:100%;}
 video{width:100%;height:auto;}
 .no-margin-top{margin-top:0px !important;}
 .no-margin-bottom{margin-bottom:0px !important;}
